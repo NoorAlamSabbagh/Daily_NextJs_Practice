@@ -1,10 +1,14 @@
+//ZOD for validation in NextJs
+
 import mongoose, {Schema, Document} from "mongoose";
 
+//1
 export interface Message extends Document{
-    content:String;
+    content:string;
     createdAt: Date
 }
 
+//Message Schema
 const MessageSchema:Schema<Message> = new Schema({
 content: {
     type:String,
@@ -17,6 +21,8 @@ createdAt: {
 }
 })
 
+
+//2
 export interface User extends Document{
 username: string;
 email: string;
@@ -28,6 +34,7 @@ isAcceptingCode: boolean;
 messages: Message[];
 }
 
+//User Schema
 const UserSchema:Schema<User> = new Schema({
     username: {
         type:String,
@@ -39,7 +46,7 @@ const UserSchema:Schema<User> = new Schema({
         type:String,
         required: [true, "Username is required"],
         unique: true,
-        match: [/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,'please use a valid email address']
+        match: [/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,'please use a valid email address']//Regexr.com
     },
     password: {
         type:String,
@@ -66,6 +73,5 @@ const UserSchema:Schema<User> = new Schema({
 
 
     const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", UserSchema);
-
     export default UserModel
      

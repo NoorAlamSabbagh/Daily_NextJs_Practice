@@ -1,3 +1,4 @@
+//ZOD for validation in NextJs
 import {z} from "zod";
 
 export const verifySchema = z.object({

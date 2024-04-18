@@ -1,3 +1,7 @@
+//Resend Email docs 
+//Lecture Setup Resend email with NextJs
+//Email Templates
+
 import {
     Html,
     Head,
@@ -8,7 +12,8 @@ import {
     Section,
     Text,
     Button,
-  } from '@react-email/components';
+  } from '@react-email/components';//react-Email packages
+
   
   interface VerificationEmailProps {
     username: string;
@@ -62,3 +67,18 @@ import {
       </Html>
     );
   }
+
+  ////////////
+//   import * as React from 'react';
+
+// interface EmailTemplateProps {
+//   firstName: string;
+// }
+
+// export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
+//   firstName,
+// }) => (
+//   <div>
+//     <h1>Welcome, {firstName}!</h1>
+//   </div>
+// );
